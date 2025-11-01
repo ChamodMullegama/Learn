@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [HomeController::class , 'index'])->name('home.index');
 
+
+
+
 Route::prefix('blog')->group(function(){
     Route::get('/',[BlogController::class,'index'])->name('blog.index');
     Route::post('/store',[BlogController::class,'store'])->name('blog.store');
@@ -33,8 +36,15 @@ Route::prefix('blog')->group(function(){
     Route::put('/{id}/update' , [BlogController::class ,'update'])->name('blog.update');
 });
 
-// Route::resource('blog', BlogController::class);
+// Route::prefix('product')->group(function(){
+//     Route::get('/',[ProductController::class,'index'])->name('blog.index');
+//     // Route::post('/store',[BlogController::class,'store'])->name('blog.store');
+//     // Route::get('/{id}',[BlogController::class,'destroy'])->name('blog.destroy');
+//     // Route::get('/{id}/edit',[BlogController::class ,"edit"])->name('blog.edit');
+//     // Route::put('/{id}/update' , [BlogController::class ,'update'])->name('blog.update');
+// });
 
+Route::resource('product', ProductController::class);
 
 
 
