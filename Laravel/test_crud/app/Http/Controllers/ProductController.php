@@ -35,17 +35,19 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'string|required',
-             'des'=>'string|required',
-             'image'=>'required|image',
+             'name' => 'required|string|max:255',
+            'des' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
-        try {
+        // try {
+
+       
              ProductFacade::store($request->all());
              return back()->with('success','Product added success');
-        } catch (\Throwable $e) {
-             return back()->with('error','Product added success'  . $e->getMessage());
-        }
+        // } catch (\Throwable $e) {
+        //      return back()->with('error','Product added success'  . $e->getMessage());
+        // }
 
 
     }
