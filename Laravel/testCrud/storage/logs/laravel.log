@@ -1,0 +1,563 @@
+[2025-11-02 18:58:39] local.ERROR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:824)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(978): Illuminate\\Database\\Connection->runQueryCallback('select exists (...', Array, Object(Closure))
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(957): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(780): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(397): Illuminate\\Database\\Connection->run('select exists (...', Array, Object(Closure))
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(343): Illuminate\\Database\\Connection->select('select exists (...', Array, true)
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(360): Illuminate\\Database\\Connection->selectOne('select exists (...', Array, true)
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(174): Illuminate\\Database\\Connection->scalar('select exists (...')
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(185): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(753): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(329): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry(1, Object(Closure), 0, Object(Closure))
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(1073): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#31 {main}
+
+[previous exception] [object] (PDOException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(85): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1234): call_user_func(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1270): Illuminate\\Database\\Connection->getPdo()
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(511): Illuminate\\Database\\Connection->getReadPdo()
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(406): Illuminate\\Database\\Connection->getPdoForSelect(true)
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(811): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select exists (...', Array)
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(978): Illuminate\\Database\\Connection->runQueryCallback('select exists (...', Array, Object(Closure))
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(957): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(780): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(397): Illuminate\\Database\\Connection->run('select exists (...', Array, Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(343): Illuminate\\Database\\Connection->select('select exists (...', Array, true)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(360): Illuminate\\Database\\Connection->selectOne('select exists (...', Array, true)
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(174): Illuminate\\Database\\Connection->scalar('select exists (...')
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(185): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#19 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(753): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(329): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry(1, Object(Closure), 0, Object(Closure))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#25 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#26 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#27 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#28 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#29 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#30 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#31 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#32 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#33 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#34 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#35 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#36 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(1073): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#39 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#41 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#42 {main}
+"} 
+[2025-11-02 19:02:08] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" or "{" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" or \"{\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\app\\Models\\Product.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2025-11-02 19:02:19] local.ERROR: syntax error, unexpected token "}", expecting "," or ";" {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): syntax error, unexpected token \"}\", expecting \",\" or \";\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\app\\Models\\Product.php:13)
+[stacktrace]
+#0 {main}
+"} 
+[2025-11-02 19:30:08] local.ERROR: syntax error, unexpected end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected end of file at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:30:08] local.ERROR: syntax error, unexpected end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected end of file at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:30:08] local.ERROR: syntax error, unexpected end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected end of file at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:31:08] local.ERROR: syntax error, unexpected single-quoted string "index", expecting ")" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected single-quoted string \"index\", expecting \")\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:11)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:31:22] local.ERROR: syntax error, unexpected token "}" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:31:29] local.ERROR: syntax error, unexpected token "}" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"}\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:39:14] local.ERROR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) (Connection: mysql, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`) at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:824)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(978): Illuminate\\Database\\Connection->runQueryCallback('select exists (...', Array, Object(Closure))
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(957): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(780): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(397): Illuminate\\Database\\Connection->run('select exists (...', Array, Object(Closure))
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(343): Illuminate\\Database\\Connection->select('select exists (...', Array, true)
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(360): Illuminate\\Database\\Connection->selectOne('select exists (...', Array, true)
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(174): Illuminate\\Database\\Connection->scalar('select exists (...')
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(185): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(753): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(329): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry(1, Object(Closure), 0, Object(Closure))
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(1073): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#31 {main}
+
+[previous exception] [object] (PDOException(code: 1045): SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:66)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(66): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(85): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1234): call_user_func(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1270): Illuminate\\Database\\Connection->getPdo()
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(511): Illuminate\\Database\\Connection->getReadPdo()
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(406): Illuminate\\Database\\Connection->getPdoForSelect(true)
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(811): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select exists (...', Array)
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(978): Illuminate\\Database\\Connection->runQueryCallback('select exists (...', Array, Object(Closure))
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(957): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(780): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select exists (...', Array, Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(397): Illuminate\\Database\\Connection->run('select exists (...', Array, Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(343): Illuminate\\Database\\Connection->select('select exists (...', Array, true)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(360): Illuminate\\Database\\Connection->selectOne('select exists (...', Array, true)
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(174): Illuminate\\Database\\Connection->scalar('select exists (...')
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(185): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#19 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(753): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(329): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry(1, Object(Closure), 0, Object(Closure))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#25 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(666): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#26 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#27 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#28 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#29 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#30 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(96): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#31 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#32 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#33 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(211): Illuminate\\Container\\Container->call(Array)
+#34 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#35 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#36 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(1073): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(356): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#39 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#41 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#42 {main}
+"} 
+[2025-11-02 19:40:56] local.ERROR: syntax error, unexpected identifier "Route" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected identifier \"Route\" at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\routes\\web.php:12)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(526): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\Users\\\\chamo\\\\...')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(480): Illuminate\\Routing\\Router->loadRoutes('C:\\\\Users\\\\chamo\\\\...')
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(212): Illuminate\\Routing\\Router->group(Array, 'C:\\\\Users\\\\chamo\\\\...')
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Configuration\\ApplicationBuilder.php(248): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\Users\\\\chamo\\\\...')
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Configuration\\ApplicationBuilder->Illuminate\\Foundation\\Configuration\\{closure}()
+#5 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(162): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(59): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(84): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(836): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(143): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1154): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1132): Illuminate\\Foundation\\Application->bootProvider(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider), 'Illuminate\\\\Foun...')
+#20 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1131): array_walk(Array, Object(Closure))
+#21 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(342): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(473): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(195): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2025-11-02 19:41:50] local.ERROR: Command "servephp" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"servephp\" is not defined. at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php:740)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(298): Symfony\\Component\\Console\\Application->find('servephp')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#5 {main}
+"} 
+[2025-11-02 19:42:07] local.ERROR: Command "make:contorller" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:contorller\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php:740)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(298): Symfony\\Component\\Console\\Application->find('make:contorller')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#5 {main}
+"} 
+[2025-11-02 19:42:19] local.ERROR: Command "make:contro;;er" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:contro;;er\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:config
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:job-middleware
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view at C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php:740)
+[stacktrace]
+#0 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(298): Symfony\\Component\\Console\\Application->find('make:contro;;er')
+#1 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\symfony\\console\\Application.php(195): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(197): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\chamo\\OneDrive\\Desktop\\learn\\Learn\\Laravel\\testCrud\\artisan(16): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#5 {main}
+"} 
