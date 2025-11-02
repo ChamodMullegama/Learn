@@ -44,7 +44,14 @@ Route::prefix('blog')->group(function(){
 //     // Route::put('/{id}/update' , [BlogController::class ,'update'])->name('blog.update');
 // });
 
-Route::resource('product', ProductController::class);
+// Route::resource('product', ProductController::class);
 
 
+Route::prefix('product')->group(function(){
+    Route::get('/',[ProductController::class,'index'])->name('product.index');
+    Route::post('/store',[ProductController::class,'store'])->name('product.store');
+    // Route::get('/{id}',[BlogController::class,'destroy'])->name('blog.destroy');
+    // Route::get('/{id}/edit',[BlogController::class ,"edit"])->name('blog.edit');
+    // Route::put('/{id}/update' , [BlogController::class ,'update'])->name('blog.update');
+});
 
