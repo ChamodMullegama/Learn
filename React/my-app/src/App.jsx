@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Grade from './components/Grade'
 import ProductInfo from './components/ProductInfo'
 import ProductList from './components/ProductList'
+import Counter from './components/Counter'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Grade/>
       <ProductInfo/>
       <ProductList/>
+      <Counter/>
       <Footer/>
     </div>
   )
