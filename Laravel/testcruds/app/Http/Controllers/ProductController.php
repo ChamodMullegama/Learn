@@ -39,7 +39,7 @@ class ProductController extends Controller
             ProductFacade::store($request->all());
             return back()->with('sus', 'product  added');
         } catch (\Throwable $th) {
-            return back()->with('err', 'product not added please try againa');
+            return back()->with('err', 'product not added please');
         }
     }
 
