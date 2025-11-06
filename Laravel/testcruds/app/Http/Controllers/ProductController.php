@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductFromRequest;
 use App\Models\Product;
+use domain\Facade\ProductFacade;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +14,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        try {
+            $product = ProductFacade::index();
+            return view('pages.product.index', compact('product'));
+        } catch (\Throwable $th) {
+            return back()->with('err', 'product not added');
+        }
     }
 
     /**
@@ -26,9 +33,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductFromRequest $request)
     {
-        //
+        try {
+            ProductFacade::store($request->all());
+            return back()->with('sus', 'product  added');
+        } catch (\Throwable $th) {
+            return back()->with('err', 'product not added');
+        }
     }
 
     /**

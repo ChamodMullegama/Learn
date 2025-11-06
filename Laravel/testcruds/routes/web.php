@@ -9,4 +9,5 @@ Route::get('/', function () {
 
 Route::prefix('product')->group(function(){
     Route::get('/',[ProductController::class, 'index'])->name('product.index');
+    Route::post('/store',[ProductController::class,'store'])->name('product.store');
 });
