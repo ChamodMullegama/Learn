@@ -9,33 +9,32 @@ class itemservice
 {
     protected $item;
 
-    public function __construct(Item $item)
+    public function __construct(item $item)
     {
         $this->item = $item;
     }
 
     public function index()
     {
-        return $this->item->select('id', 'des', 'image', 'name')->get();
+        return $this->item->select('id', 'name', 'des', 'image')->get();
     }
 
-
-    public function store(array $data)
+    public function store(array $item)
     {
-
         if (request()->hasFile('image')) {
-            $data['image'] = request()->file('image')->store('item', 'public');
+            $item['image'] = request()->file('image')->store('item', 'public');
         }
 
-        return $this->item->crate($data);
+        return $this->item->create($item);
     }
 
     public function destroy($id)
     {
         $item = $this->item->findOrFail($id);
 
-        if ($item->image && Storage::exists('public/' . $item->image)) {
-            Storage::delete('public/' . $item->image);
+        if($item->image && Storage::exists('public/'.$item->image))
+        {
+            Storage::delete('public/'.$item->image);
         }
 
         return $item->delete();
