@@ -14,9 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         try {
-            $product = ProductFacade::index();
-            return view('pages.product.index', compact('product'));
+           $product=ProductFacade::index();
+           return view('pages.product.index', compact('products'));
         } catch (\Throwable $th) {
             return back()->with('err', 'product not added');
         }
@@ -70,8 +71,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+
+        ProductFacade::destroy($id);
+        return back()-with('sus','delete suss');
     }
 }
