@@ -32,11 +32,34 @@ class itemservice
     {
         $item = $this->item->findOrFail($id);
 
-        if($item->image && Storage::exists('public/'.$item->image))
-        {
-            Storage::delete('public/'.$item->image);
+        if ($item->image && Storage::exists('public/' . $item->image)) {
+            Storage::delete('public/' . $item->image);
         }
 
         return $item->delete();
+    }
+
+    public function edit($id){
+         return $this->item->findOrFail($id);
+    }
+
+
+    public function update($id,array $item)
+    {
+
+        $item = $this->item->findOrFail($id);
+
+        if(request()->hasFile('image'))
+        {
+            if($item->image && Storage::exists('public/' .$item->image)){
+                Storage::delete('public/' . $item->image);
+            }
+            $item["image"] = request()->file('image')->store('public/' . 'item');
+
+        }else{
+          unset($item['image']);
+        }
+
+        return $item->update($item);
     }
 }
