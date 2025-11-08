@@ -44,22 +44,18 @@ class itemservice
     }
 
 
-    public function update($id,array $item)
-    {
+  public function update($id, array $item){
+     $item=$this->item->findOrFail($id);
 
-        $item = $this->item->findOrFail($id);
+     if(request()->hasFile('image')){
+         if($item->image  && Storage::exists('public/' .$item->image)){
+            Storage::delete('public/' .$item->image);
+         }
+         $item['image'] = request()->file('image')->store('public/' . $item->image);
+     }else{
+        unset($item['image']);
+     }
 
-        if(request()->hasFile('image'))
-        {
-            if($item->image && Storage::exists('public/' .$item->image)){
-                Storage::delete('public/' . $item->image);
-            }
-            $item["image"] = request()->file('image')->store('public/' . 'item');
-
-        }else{
-          unset($item['image']);
-        }
-
-        return $item->update($item);
-    }
+     return $item->update($item);
+  }
 }
