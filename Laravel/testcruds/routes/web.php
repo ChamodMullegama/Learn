@@ -14,9 +14,6 @@ Route::get('/', function () {
 
 // });
 
-
-
-
 Route::prefix('item')->group(function(){
 
     Route::get('/' ,[ItemController::class , 'index'])->name('item.index');
