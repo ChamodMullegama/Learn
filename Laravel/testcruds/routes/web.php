@@ -13,8 +13,7 @@ Route::get('/', function () {
 //     Route::post('/store',[ProductController::class,'store'])->name('product.store');
 
 // });
-
-
+   
 Route::prefix('item')->group(function(){
 
     Route::get('/' ,[ItemController::class , 'index'])->name('item.index');
