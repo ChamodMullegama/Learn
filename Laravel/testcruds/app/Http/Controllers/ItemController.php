@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\itemRequests;
 use App\Models\item;
+use domain\Facade\itemfacade;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -12,7 +14,12 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $items = itemfacade::index();
+            return view('pages.item.index' , compact('items'));
+        } catch (\Throwable $th) {
+
+        }
     }
 
     /**
@@ -26,9 +33,9 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(itemRequests $request)
     {
-        //
+        itemfacade::store($request->all());
     }
 
     /**
@@ -42,24 +49,25 @@ class ItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(item $item)
+    public function edit($id)
     {
-        //
+        itemfacade::edit($id);
+        return view('pages.item.edit', compact('items'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, item $item)
+    public function update($id , itemRequests $item)
     {
-        //
+        itemfacade::update(request()->all() , $id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(item $item)
+    public function destroy($id)
     {
-        //
+        itemfacade::destroy($id);
     }
 }

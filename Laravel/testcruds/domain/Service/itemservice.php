@@ -23,7 +23,7 @@ class itemservice
     {
 
         if (request()->hasFile('image')) {
-            $data['image'] = request()->file('image')->store('item', 'public/');
+            $data['image'] = request()->file('image')->store('item', 'public');
         }
 
         return $this->item->create($data);
@@ -41,6 +41,8 @@ class itemservice
         if (request()->hasFile('image')) {
             if ($item->image && Storage::exists('public/' . $item->image)) {
                 Storage::delete('public/' . $item->image);
+
+                $data['image'] = request()->file('image')->store('item' , 'public');
             } else {
                 unset($date['image']);
             }
