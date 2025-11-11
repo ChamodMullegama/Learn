@@ -14,6 +14,10 @@ Route::prefix('product')->group(function(){
 
 });
 
+
+
+
+
 Route::prefix('item')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('item.index');
     Route::post('/store', [ItemController::class, 'store'])->name('item.store');
