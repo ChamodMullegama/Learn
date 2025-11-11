@@ -16,9 +16,8 @@ class ItemController extends Controller
     {
         try {
             $items = itemfacade::index();
-            return view('pages.item.index' , compact('items'));
+            return view('pages.item.index', compact('items'));
         } catch (\Throwable $th) {
-
         }
     }
 
@@ -35,7 +34,13 @@ class ItemController extends Controller
      */
     public function store(itemRequests $request)
     {
-        itemfacade::store($request->all());
+
+        try {
+            itemfacade::store($request->all());
+            return back()->with('sus', 'item added sus');
+        } catch (\Throwable $th) {
+            return back()->with('er', 'item now added' . $th->getMessage());
+        }
     }
 
     /**
@@ -51,16 +56,25 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        itemfacade::edit($id);
-        return view('pages.item.edit', compact('items'));
+        try {
+            itemfacade::edit($id);
+            return view('pages.item.edit', compact('items'));
+        } catch (\Throwable $th) {
+            return back()->with('er', 'item not found' . $th->getMessage());
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($id , itemRequests $item)
+    public function update($id, itemRequests $request)
     {
-        itemfacade::update(request()->all() , $id);
+        try {
+            itemfacade::update($request->all(), $id);
+            return view('pages.item.edit', compact('items'));
+        } catch (\Throwable $th) {
+            return back()->with('er', 'item not updated' . $th->getMessage());
+        }
     }
 
     /**
@@ -68,6 +82,11 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        itemfacade::destroy($id);
+        try {
+            itemfacade::destroy($id);
+            return back()->with('sus', 'item delete sus');
+        } catch (\Throwable $th) {
+            return back()->with('er', 'item not delete' . $th->getMessage());
+        }
     }
 }
