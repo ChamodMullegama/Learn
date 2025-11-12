@@ -16,7 +16,7 @@ class itemservice
 
     public function index()
     {
-        return $this->item->select('id', 'name', 'image')->get();
+        return $this->item->select('id', 'name', 'price','image')->get();
     }
 
     public function store(array $data)
@@ -39,8 +39,8 @@ class itemservice
         $item = $this->item->findOrFail($id);
 
         if (request()->hasFile('image')) {
-            if ($item->image && Storage::exists('public/' . $item->image)) {
-                Storage::delete('public/' . $item->image);
+            if ($item->image && Storage::exists($item->image)) {
+                Storage::delete($item->image);
 
                 $data['image'] = request()->file('image')->store('item' , 'public');
             } else {
@@ -51,11 +51,13 @@ class itemservice
         return $item->update($data);
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         $item = $this->item->findOrFail($id);
         if ($item->image && Storage::exists('public/' . $item->image)) {
             Storage::delete('public/' . $item->image);
         }
+
+        return $item->delete();
     }
 }

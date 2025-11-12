@@ -37,9 +37,9 @@ class ItemController extends Controller
 
         try {
             itemfacade::store($request->all());
-            return back()->with('sus', 'item added sus');
+            return back()->with('success', 'item added sus');
         } catch (\Throwable $th) {
-            return back()->with('er', 'item now added' . $th->getMessage());
+            return back()->with('error', 'item now added' . $th->getMessage());
         }
     }
 
@@ -57,10 +57,10 @@ class ItemController extends Controller
     public function edit($id)
     {
         try {
-            itemfacade::edit($id);
-            return view('pages.item.edit', compact('items'));
+          $item=itemfacade::edit($id);
+            return view('pages.item.edit', compact('item'));
         } catch (\Throwable $th) {
-            return back()->with('er', 'item not found' . $th->getMessage());
+            return back()->with('error', 'item not found' . $th->getMessage());
         }
     }
 
@@ -71,9 +71,9 @@ class ItemController extends Controller
     {
         try {
             itemfacade::update($request->all(), $id);
-            return view('pages.item.edit', compact('items'));
+             return redirect()->route('item.index')->with('success', 'Blog updated successfully!');
         } catch (\Throwable $th) {
-            return back()->with('er', 'item not updated' . $th->getMessage());
+            return back()->with('error', 'item not updated' . $th->getMessage());
         }
     }
 
@@ -82,11 +82,12 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
+
         try {
             itemfacade::destroy($id);
-            return back()->with('sus', 'item delete sus');
+            return back()->with('success', 'item delete sus');
         } catch (\Throwable $th) {
-            return back()->with('er', 'item not delete' . $th->getMessage());
+            return back()->with('error', 'item not delete' . $th->getMessage());
         }
     }
 }

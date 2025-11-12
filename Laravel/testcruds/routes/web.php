@@ -18,6 +18,6 @@ Route::prefix('item')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('item.index');
     Route::post('/store', [ItemController::class, 'store'])->name('item.store');
     Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
-    Route::get('/{id}/update', [ItemController::class, 'update'])->name('item.update');
-    Route::get('/{id}/destroy', [ItemController::class, 'destroy'])->name('item.destroy');
+    Route::put('/{id}/update', [ItemController::class, 'update'])->name('item.update');
+    Route::delete('/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
 });
