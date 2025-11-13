@@ -21,6 +21,8 @@
 
                 @enderror
             </div>
+
+            
             <div class="col-12">
                 <label for="inputAddress" class="form-label">image</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" placeholder="1234 Main St" name="image" >
