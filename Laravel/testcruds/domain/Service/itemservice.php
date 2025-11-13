@@ -34,7 +34,7 @@ class itemservice
         return $this->item->findOrFail($id);
     }
 
-    public function update($id, array $data)
+    public function update(array $data,$id)
     {
         $item = $this->item->findOrFail($id);
 
