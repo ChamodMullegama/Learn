@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrmController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -8,10 +9,9 @@ Route::get('/', function () {
     return view('pages.home.index');
 });
 
-Route::prefix('product')->group(function(){
-    Route::get('/',[ProductController::class, 'index'])->name('product.index');
-    Route::post('/store',[ProductController::class,'store'])->name('product.store');
-
+Route::prefix('product')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/store', [ProductController::class, 'store'])->name('product.store');
 });
 
 
@@ -21,4 +21,9 @@ Route::prefix('item')->group(function () {
     Route::get('/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
     Route::put('/{id}/update', [ItemController::class, 'update'])->name('item.update');
     Route::delete('/{id}/destroy', [ItemController::class, 'destroy'])->name('item.destroy');
+});
+
+Route::prefix('crm')->group(function () {
+    Route::get('/', [CrmController::class, 'index'])->name('crm.index');
+    Route::post('/store', [CrmController::class, 'store'])->name('crm.store');
 });
