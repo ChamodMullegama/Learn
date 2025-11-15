@@ -47,6 +47,9 @@ class crmservice
               Storage::delete($crm->image);
             }
 
+
+
+            
         }
     }
 }
