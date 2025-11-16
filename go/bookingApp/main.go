@@ -34,24 +34,37 @@ func main() {
 		fmt.Println("enter your need tiket:")
 		fmt.Scan(&usertiket)
 
-		avalabeltiket = avalabeltiket - usertiket
-		bookings = append(bookings, fname+" "+lname)
+		if usertiket <= avalabeltiket {
 
-		fmt.Printf("all of the arry %v\n", bookings)
-		fmt.Printf("1 value of the arry %v\n", bookings[0])
-		fmt.Printf("1 value of the arry %v\n", len(bookings))
+			avalabeltiket = avalabeltiket - usertiket
+			bookings = append(bookings, fname+" "+lname)
 
-		fmt.Printf("your name is %v %v and you book %v tiket and youn  comformation email sent to the %v ", fname, lname, email, usertiket)
-		fmt.Printf("now avalabel tiket is : %v", avalabeltiket)
+			fmt.Printf("all of the arry %v\n", bookings)
+			fmt.Printf("1 value of the arry %v\n", bookings[0])
+			fmt.Printf("1 value of the arry %v\n", len(bookings))
 
-		firstnames1 := []string{}
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
+			fmt.Printf("your name is %v %v and you book %v tiket and youn  comformation email sent to the %v ", fname, lname, email, usertiket)
+			fmt.Printf("now avalabel tiket is : %v", avalabeltiket)
 
-			firstnames1 = append(firstnames1, names[0])
+			firstnames1 := []string{}
+			for _, booking := range bookings {
+				var names = strings.Fields(booking)
+
+				firstnames1 = append(firstnames1, names[0])
+			}
+
+			fmt.Printf("this is the first name s %v", firstnames1)
+
+			var notiket bool = avalabeltiket == 0
+			if notiket {
+				fmt.Printf("application is stop")
+				break
+			}
+		} else {
+			fmt.Printf("we only have %v tiker you can not book %v tikket ", avalabeltiket, usertiket)
+			continue
 		}
 
-		fmt.Printf("this is the first name s %v", firstnames1)
 	}
 
 }
