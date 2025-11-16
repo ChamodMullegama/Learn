@@ -53,24 +53,41 @@ class CrmController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(crm $crm)
+    public function edit($id)
     {
-        //
+        try {
+            $crms =  crmfacade::edit($id);
+            return view('pages.crm.edit', compact('crms'));
+        } catch (\Throwable $th) {
+            return back()->with('success', 'crm not added' . $th->getMessage());
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, crm $crm)
+    public function update(crmformrequest $request, $id)
     {
-        //
+
+
+        try {
+            crmfacade::update($request->all(), $id);
+            return back()->with('success', 'crm update success');
+        } catch (\Throwable $th) {
+            return back()->with('success', 'crm not update' . $th->getMessage());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(crm $crm)
+    public function destroy($id)
     {
-        //
+        try {
+            crmfacade::delete($id);
+            return back()->with('success', 'crm delete success');
+        } catch (\Throwable $th) {
+            return back()->with('success', 'crm not delete' . $th->getMessage());
+        }
     }
 }

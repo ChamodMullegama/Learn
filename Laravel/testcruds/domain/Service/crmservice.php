@@ -29,27 +29,38 @@ class crmservice
         }
 
         return $this->crm->create($data);
-
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
-         return $this->crm->find($id);
-
+        return $this->crm->find($id);
     }
 
-    public function update(array $data , $id)
+    public function update(array $data, $id)
     {
         $crm = $this->crm->find($id);
 
-        if(request()->hasFile('image')){
-            if($crm->image  && Storage::exists($crm->image)){
-              Storage::delete($crm->image);
+        if (request()->hasFile('image')) {
+            if ($crm->image && Storage::exists($crm->image)) {
+                Storage::delete($crm->image);
             }
 
-
-
-            
+            $data['image'] = request()->file('image')->store('item', 'public');
+        } else {
+            unset($data['image']);
         }
+        return $crm->update($data);
+    }
+
+    public function delete($id)
+    {
+
+        $crm = $this->crm->find($id);
+        if ($crm->image && Storage::exists('public/' . $crm->image)) {
+            Storage::delete('public/' . $crm->image);
+        }
+
+        return $crm->delete($id);
     }
 }
