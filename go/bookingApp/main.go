@@ -61,7 +61,7 @@ func main() {
 				break
 			}
 		} else {
-			fmt.Printf("we only have %v tiker you can not book %v tikket ", avalabeltiket, usertiket)
+			fmt.Printf("we only have a %v tiker you can not book %v tikket ", avalabeltiket, usertiket)
 			continue
 		}
 
