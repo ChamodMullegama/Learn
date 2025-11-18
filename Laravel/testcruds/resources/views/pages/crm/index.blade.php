@@ -64,8 +64,12 @@
                             @endif
                         </td>
                         <td>
-                            <a href="" class="btn btn-info"> edit</a>
-
+                            <a href="{{ route('crm.edit' , $crm->id) }}"> edit</a>
+                            <form action="{{ route('crm.destroy' , $crm->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger " style="display: inline-block">delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

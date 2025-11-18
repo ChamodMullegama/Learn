@@ -56,8 +56,8 @@ class CrmController extends Controller
     public function edit($id)
     {
         try {
-            $crms =  crmfacade::edit($id);
-            return view('pages.crm.edit', compact('crms'));
+            $crm =  crmfacade::edit($id);
+            return view('pages.crm.edit', compact('crm'));
         } catch (\Throwable $th) {
             return back()->with('success', 'crm not added' . $th->getMessage());
         }
