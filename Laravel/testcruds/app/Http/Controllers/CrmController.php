@@ -15,6 +15,9 @@ class CrmController extends Controller
     public function index()
     {
 
+
+
+        
         try {
             $crms = crmfacade::index();
             return view('pages.crm.index', compact('crms'));
