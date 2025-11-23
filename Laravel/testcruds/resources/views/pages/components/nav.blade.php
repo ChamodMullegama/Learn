@@ -13,7 +13,7 @@
           <a class="nav-link" href="{{ Route('product.index') }}">Product</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="{{ Route('item.index') }}">item</a>
+          {{-- <a class="nav-link" href="{{ Route('item.index') }}">item</a> --}}
         </li>
            <li class="nav-item">
           <a class="nav-link" href="{{ Route('crm.index') }}">crm</a>

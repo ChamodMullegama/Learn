@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c514d8f7b9fc5970bdd94287905ef584",
+    "content-hash": "fd2ea93ac78fbf1c6c53db8ce44bba64",
     "packages": [
         {
             "name": "brick/math",
@@ -5816,6 +5816,57 @@
             "time": "2024-12-21T16:25:41+00:00"
         },
         {
+            "name": "vertexcoreai/helpers",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sanjanarathnyke/LaravelCP-packagist.git",
+                "reference": "70c35c5f2a7963978c5b2cb25d0f1e8eae70ea15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sanjanarathnyke/LaravelCP-packagist/zipball/70c35c5f2a7963978c5b2cb25d0f1e8eae70ea15",
+                "reference": "70c35c5f2a7963978c5b2cb25d0f1e8eae70ea15",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vertexcore\\Helpers\\HelpersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "Vertexcore\\Helpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Your Name",
+                    "email": "your-email@example.com"
+                }
+            ],
+            "description": "Simple helper functions for Laravel",
+            "support": {
+                "issues": "https://github.com/sanjanarathnyke/LaravelCP-packagist/issues",
+                "source": "https://github.com/sanjanarathnyke/LaravelCP-packagist/tree/v1.0.0"
+            },
+            "time": "2025-11-23T05:00:40+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.6.2",
             "source": {
@@ -8339,12 +8390,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
