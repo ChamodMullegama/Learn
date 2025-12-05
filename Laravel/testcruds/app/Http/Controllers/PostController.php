@@ -12,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+     $post = Post::select('id', 'title' , 'body')->get();
+        return response()->json($post);
     }
 
     /**
