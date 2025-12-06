@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-     $post = Post::select('id', 'title' , 'body')->get();
+        $post = Post::select('id', 'title', 'body')->get();
         return response()->json($post);
     }
 
@@ -29,7 +29,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create([
+            'title' => $request->title,
+            'body'  => $request->body,
+        ]);
+
+        return response()->json($post);
     }
 
     /**
@@ -37,7 +42,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post = Post::select('id', 'title', 'body')->where('id', $post->id)->first();
+        return response()->json($post);
     }
 
     /**
@@ -53,7 +59,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
     }
 
     /**
@@ -61,6 +69,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete($post);
+        return response()->json('Deleted Successfully');
     }
 }
