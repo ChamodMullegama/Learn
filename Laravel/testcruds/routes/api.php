@@ -9,4 +9,7 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 
+
+
+
 Route::resource('post',PostController::class);
