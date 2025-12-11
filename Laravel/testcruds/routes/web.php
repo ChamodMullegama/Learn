@@ -23,12 +23,16 @@ Route::prefix('product')->group(function () {
 //     Route::put('/{id}/update', [ItemController::clasclass, 'destroy'])->name('item.destroy');
 // });
 
-Route::prefix('crm')->group(function () {
-    Route::get('/', [CrmController::class, 'index'])->name('crm.index');
-    Route::post('/store', [CrmController::class, 'store'])->name('crm.store');
-    Route::get('/{id}/edit', [CrmController::class, 'edit'])->name('crm.edit');
-    Route::put('/{id}/update' , [CrmController::class ,'update'])->name('crm.update');
-    Route::delete('/{id}/destroy' , [CrmController::class ,'destroy'])->name('crm.destroy');
+// Route::prefix('crm')->group(function () {
+//     Route::get('/', [CrmController::class, 'index'])->name('crm.index');
+//     Route::post('/store', [CrmController::class, 'store'])->name('crm.store');
+//     Route::get('/{id}/edit', [CrmController::class, 'edit'])->name('crm.edit');
+//     Route::put('/{id}/update' , [CrmController::class ,'update'])->name('crm.update');
+//     Route::delete('/{id}/destroy' , [CrmController::class ,'destroy'])->name('crm.destroy');
+
+// });
+
+Route::prefix('food')->group(function(){
 
 });
 
