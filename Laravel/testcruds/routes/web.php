@@ -33,7 +33,21 @@ Route::prefix('product')->group(function () {
 // });
 
 Route::prefix('food')->group(function(){
+    Route::get('/', function(){
+        return view('pages.food.index');
+    })->name('food.index');
 
+    Route::get('/italian', function(){
+        return view('pages.food.italian');
+    })->name('food.italian');
+
+    Route::get('/chinese', function(){
+        return view('pages.food.chinese');
+    })->name('food.chinese');
+
+    Route::get('/indian', function(){
+        return view('pages.food.indian');
+    })->name('food.indian');
 });
 
 Route::get('/test-helper', function () {
