@@ -9,3 +9,7 @@ Artisan::command('inspire', function () {
 
 
 
+
+
+
+
