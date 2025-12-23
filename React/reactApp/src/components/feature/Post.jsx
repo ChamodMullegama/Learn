@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const Post = () => {
   const [posts, setPosts] = useState([]);
   const [query, setQuery] = useState("");
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     console.log("Post component mounted");
@@ -17,12 +18,22 @@ const Post = () => {
   }, [query]);
 
 
+   useEffect(() => {
+const timer = setInterval(() => {
+setSeconds((prevSeconds) => prevSeconds + 1);
+},1000);
+
+
+return () => clearInterval(timer);
+   }, [])
+
   const handleSearch = (e) => {
     setQuery(e.target.value);
   }
 
   return (
     <div>
+        <h1>Post Component - {seconds} seconds elapsed</h1>
         <input type="text" placeholder="search post"  onChange={handleSearch}/>
         <table>
             <thead>
