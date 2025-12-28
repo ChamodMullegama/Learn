@@ -41,11 +41,11 @@
                         no image
                     </td>
                     <td>
-                        <a href="{{ route('item.edit' , $item->id) }}">Edit</a>
+                        <a href="{{ route('item.edit' , $item->id) }}" class="btn btn-primary">Edit</a>
                         <form action="{{ route('item.delete' , $item->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return alert('are you want to delete this item ?')">delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return alert('are you want to delete this item ?')">delete</button>
                         </form>
                     </td>
             </tr>
@@ -56,3 +56,11 @@
 
         </div>
     @endsection
+
+    @push('js')
+
+    @endpush
+
+      @push('css')
+
+    @endpush

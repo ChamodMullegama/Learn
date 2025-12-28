@@ -27,6 +27,7 @@
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">update item</button>
+            <a href="{{ route('item.index') }}" class="btn btn-secondary">Back to Item List</a>
             </div>
         </form>
 
