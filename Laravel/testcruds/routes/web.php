@@ -23,32 +23,33 @@ Route::prefix('product')->group(function () {
 //     Route::put('/{id}/update', [ItemController::clasclass, 'destroy'])->name('item.destroy');
 // });
 
-// Route::prefix('crm')->group(function () {
-//     Route::get('/', [CrmController::class, 'index'])->name('crm.index');
-//     Route::post('/store', [CrmController::class, 'store'])->name('crm.store');
-//     Route::get('/{id}/edit', [CrmController::class, 'edit'])->name('crm.edit');
-//     Route::put('/{id}/update' , [CrmController::class ,'update'])->name('crm.update');
-//     Route::delete('/{id}/destroy' , [CrmController::class ,'destroy'])->name('crm.destroy');
+Route::prefix('crm')->group(function () {
+    Route::get('/', [CrmController::class, 'index'])->name('crm.index');
+    Route::post('/store', [CrmController::class, 'store'])->name('crm.store');
+    Route::get('/{id}/edit', [CrmController::class, 'edit'])->name('crm.edit');
+    Route::put('/{id}/update' , [CrmController::class ,'update'])->name('crm.update');
+    Route::delete('/{id}/destroy' , [CrmController::class ,'destroy'])->name('crm.destroy');
 
+});
+
+// Route::prefix('food')->group(function(){
+//     Route::get('/', function(){
+//         return view('pages.food.index');
+//     })->name('food.index');
+
+//     Route::get('/italian', function(){
+//         return view('pages.food.italian');
+//     })->name('food.italian');
+
+//     Route::get('/chinese', function(){
+//         return view('pages.food.chinese');
+//     })->name('food.chinese');
+
+//     Route::get('/indian', function(){
+//         return view('pages.food.indian');
+//     })->name('food.indian');
 // });
 
-Route::prefix('food')->group(function(){
-    Route::get('/', function(){
-        return view('pages.food.index');
-    })->name('food.index');
-
-    Route::get('/italian', function(){
-        return view('pages.food.italian');
-    })->name('food.italian');
-
-    Route::get('/chinese', function(){
-        return view('pages.food.chinese');
-    })->name('food.chinese');
-
-    Route::get('/indian', function(){
-        return view('pages.food.indian');
-    })->name('food.indian');
-});
 
 
 
@@ -56,7 +57,6 @@ Route::prefix('food')->group(function(){
 
 
 
-
-Route::get('/test-helper', function () {
-    return say_hello('sanjana');
-});
+// Route::get('/test-helper', function () {
+//     return say_hello('sanjana');
+// });
