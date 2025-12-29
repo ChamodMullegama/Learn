@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Registration = () => {
   const [errors, setErrors] = useState({});
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [apiResponse, setApiResponse] = useState("");
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -44,14 +46,44 @@ const Registration = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const isValid = validateInput();
     if (!isValid) return;
 
+    setLoading(true);
+
     setIsFormSubmitted(true);
     console.log("Form submitted", formData);
+
+    try {
+      //   fetch('https://jsonplaceholder.typicode.com/users' ,{
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify(formData)
+      // }).then(response => response.json()).then(data=> console.log("api response" , data) );
+
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const data = await response.json();
+      console.log("api response", response);
+
+      setApiResponse("Registration successful!");
+      setLoading(false);
+    } catch (error) {
+      console.log("api backend", error);
+    }
   };
 
   return (
@@ -126,9 +158,7 @@ const Registration = () => {
               className="w-full px-4 py-2 border rounded-md"
             />
             {errors.confirmPassword && (
-              <p className="text-red-500 text-sm">
-                {errors.confirmPassword}
-              </p>
+              <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
             )}
           </div>
 
@@ -136,6 +166,10 @@ const Registration = () => {
             Register
           </button>
         </form>
+
+        {apiResponse && (
+          <p className="text-green-500 text-center mb-4">{apiResponse}</p>
+        )}
 
         {isFormSubmitted && (
           <div>
@@ -151,8 +185,5 @@ const Registration = () => {
     </div>
   );
 };
-
-
-
 
 export default Registration;
