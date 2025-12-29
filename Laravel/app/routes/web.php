@@ -17,3 +17,8 @@ Route::prefix('item')->group(function () {
     Route::put('{id}/update', [ItemController::class, 'update'])->name('item.update');
     Route::delete('{id}/delete', [ItemController::class, 'delete'])->name('item.delete');
 });
+
+
+
+
+

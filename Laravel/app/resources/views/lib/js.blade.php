@@ -25,7 +25,4 @@
 @endif
 
 
-
-
-
 @stack('js')
