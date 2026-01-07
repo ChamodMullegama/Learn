@@ -15,7 +15,11 @@ use App\Models\Product;
         $this->product=$product;
      }
 
-public
+    public function index()
+    {
+        return $this->product->select('id','name', 'description', 'price','image')->get();
+    }
+    
 
  }
 
