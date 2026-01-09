@@ -23,6 +23,7 @@ use App\Models\Product;
     public function store(){
         return $this->product->create(request()->all());
 
+        
 
     }
 
