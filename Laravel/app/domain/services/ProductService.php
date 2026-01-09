@@ -19,7 +19,13 @@ use App\Models\Product;
     {
         return $this->product->select('id','name', 'description', 'price','image')->get();
     }
-    
+
+    public function store(){
+        return $this->product->create(request()->all());
+
+
+    }
+
 
  }
 
