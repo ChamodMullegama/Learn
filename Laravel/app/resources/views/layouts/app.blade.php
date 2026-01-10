@@ -11,5 +11,8 @@
 @include("components.mavBar")
 @yield("content")
 @include("lib.js")
+
+
+
 </body>
 </html>
