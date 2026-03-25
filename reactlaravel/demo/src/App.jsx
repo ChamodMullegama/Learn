@@ -3,6 +3,8 @@ import UserCard from "./componets/feature/UserCard";
 import Button from "./componets/ui/Button";
 import Counter from "./componets/feature/Counter";
 import Post from "./componets/feature/Post";
+import Registation from "./componets/feature/Registation";
+import Uncontroll from "./componets/feature/Uncontroll";
 function App() {
   const name = "chamod mullegama";
   const tp = "0702740542";
@@ -25,6 +27,8 @@ function App() {
       <Button clickHandler={clickHandler} />
       <Counter/>
       <Post/>
+      <Registation/>
+      <Uncontroll/>
     </div>
   );
 }
