@@ -1,42 +1,155 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 
 const Registation = () => {
 
-    const [formData, setFormData] = useState({
-        fname:"",
-        email:"",
-        password:""
-    });
+    const [isFromSubmitted,setisFromSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
-const handelChange = (e) =>{
+  const [formData, setFormData] = useState({
+    fname: "",
+    email: "",
+    password: "",
+    comfrompassword: "",
+  });
 
-    const {name, value} = e.target;
+  const handelChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    setFormData({...formData,[name]:value});
-};
-
-const formsubmit = (e) =>{
+  const formsubmit = (e) => {
     e.preventDefault();
-}
+    const isValid = validateFrom();
+    if (!isValid) return;
+    setisFromSubmitted(true);
+  };
+
+  const validateFrom = () => {
+    let neweerrors = {};
+
+    if (!formData.fname.trim()) {
+      neweerrors.fname = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      neweerrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      neweerrors.email = "Email is invalid";
+    }
+
+    if (!formData.password.trim()) {
+      neweerrors.password = "Password is required";
+    } else if (formData.password.length < 6) {
+      neweerrors.password = "Password must be at least 6 characters";
+    }
+
+    if (!formData.comfrompassword.trim()) {
+      neweerrors.comfrompassword = "Enter your password again";
+    } else if (formData.password !== formData.comfrompassword) {
+      neweerrors.comfrompassword = "Passwords do not match";
+    }
+
+    setErrors(neweerrors);
+    return Object.keys(neweerrors).length === 0;
+  };
 
   return (
-    <div>
-        
-    <form action="" onSubmit={formsubmit}> 
-        <h1>Registation Form </h1>
-        <input type="text" name='fname' placeholder='enter name' onChange={handelChange} value={formData.fname}/>
-        <input type="email" name='email' placeholder='enter email' onChange={handelChange} value={formData.email}/>
-        <input type="password" name='password' placeholder='enter password' onChange={handelChange} value={formData.password}/>
-        <button type='submit'>register</button>
-    </form>
-    <div>
-        <h1>Form Data</h1>
-        <h3>name : {formData.name}</h3>
-        <h3>email : {formData.email}</h3>
-        <h3>password : {formData.password}</h3>
-    </div>
-    </div>
-  )
-}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded shadow-lg w-full max-w-md">
+        <form onSubmit={formsubmit} className="space-y-4">
+          <h1 className="text-2xl font-bold text-center text-gray-700 mb-4">
+            Registration Form
+          </h1>
 
-export default Registation
+          {/* Name */}
+          <div>
+            <input
+              type="text"
+              name="fname"
+              placeholder="Enter Name"
+              onChange={handelChange}
+              value={formData.fname}
+              className={`w-full p-3 border rounded-lg ${
+                errors.fname ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.fname && (
+              <p className="text-red-500 text-sm mt-1">{errors.fname}</p>
+            )}
+          </div>
+
+          {/* Email */}
+          <div>
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter Email"
+              onChange={handelChange}
+              value={formData.email}
+              className={`w-full p-3 border rounded-lg ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          {/* Password */}
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              onChange={handelChange}
+              value={formData.password}
+              className={`w-full p-3 border rounded-lg ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
+
+          {/* Confirm Password */}
+          <div>
+            <input
+              type="password"
+              name="comfrompassword"
+              placeholder="Confirm Password"
+              onChange={handelChange}
+              value={formData.comfrompassword}
+              className={`w-full p-3 border rounded-lg ${
+                errors.comfrompassword ? "border-red-500" : "border-gray-300"
+              }`}
+            />
+            {errors.comfrompassword && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.comfrompassword}
+              </p>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+{isFromSubmitted &&  ( <div className="ml-6 bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+        <h1 className="text-xl font-semibold text-gray-700 mb-3">Form Data</h1>
+
+        <h3>Name : {formData.fname}</h3>
+        <h3>Email : {formData.email}</h3>
+        <h3>Password : {formData.password}</h3>
+      </div>)}
+     
+    </div>
+  );
+};
+
+export default Registation;
