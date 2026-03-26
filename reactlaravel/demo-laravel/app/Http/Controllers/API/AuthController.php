@@ -19,17 +19,18 @@ class AuthController extends Controller
 
         try {
 
-    $user = User::create([
-            'name'=>$validatedRequest['fname'],
-            'email'=>$validatedRequest['email'],
-            'password'=>Hash::make($validatedRequest['password'])
-        ]);
+            $user = User::create([
+                'name'=>$validatedRequest['fname'],
+                'email'=>$validatedRequest['email'],
+                'password'=>Hash::make($validatedRequest['password'])
+            ]);
 
-        return response()->json([
-            'success'=>true,
-            'message'=>'User registered successfully',
-            'data'=>$user
-        ],201);
+            return response()->json([
+                'success'=>true,
+                'message'=>'User registered successfully',
+                'data'=>$user
+            ],201);
+
         } catch (Exception $e) {
             return response()->json([
                 'success'=>false,
@@ -37,6 +38,5 @@ class AuthController extends Controller
                 'error'=>$e->getMessage()
             ],500);
         }
-
     }
 }

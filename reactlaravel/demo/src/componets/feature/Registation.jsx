@@ -4,7 +4,10 @@ import { useState } from "react";
 const Registation = () => {
   const [isFromSubmitted, setisFromSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [serverResponse, setserverResponse] = useState("");
+  const [serverResponse, setserverResponse] = useState({
+    type: "",
+    message: "",
+  });
   const [isloading, setisloading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -23,30 +26,25 @@ const Registation = () => {
     e.preventDefault();
     const isValid = validateFrom();
     if (!isValid) return;
+
     setisloading(true);
     setisFromSubmitted(true);
 
     try {
-      // fetch('https://jsonplaceholder.typicode.com/users',{
-      //     method:'POST',
-      //     headers:{
-      //         "Content-Type":"application/json"
-      //     },
-      //     body: JSON.stringify(formData)
-      // }).then(response => response.json()).then(data=>console.log(data));
-
-      const payload ={
+      const payload = {
         fname: formData.fname,
         email: formData.email,
         password: formData.password,
-        password_comfirmation: formData.comfrompassword
-      }
+        password_confirmation: formData.comfrompassword
+      };
+
       const response = await fetch(
         "http://127.0.0.1:8000/api/register",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "accept": "application/json",
           },
           body: JSON.stringify(payload),
         }
@@ -55,8 +53,31 @@ const Registation = () => {
       const data = await response.json();
       console.log(data);
 
-      setserverResponse(data.message );
+      if (!response.ok) {
+        if (response.status === 422 && data.errors) {
+          setErrors((prev) => ({
+            ...prev,
+            ...data.errors
+          }));
+
+          setserverResponse({
+            type: "error",
+            message: data.message
+          });
+        }
+
+        setserverResponse({
+          type:"success",
+         message: data.message
+        });
+        setisloading(false);
+        return;
+      }
+
+      setErrors({});
+      setserverResponse(data.message);
       setisloading(false);
+
     } catch (error) {
       console.log("api error", error);
       setisloading(false);
@@ -113,7 +134,9 @@ const Registation = () => {
               }`}
             />
             {errors.fname && (
-              <p className="text-red-500 text-sm mt-1">{errors.fname}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {Array.isArray(errors.fname) ? errors.fname[0] : errors.fname}
+              </p>
             )}
           </div>
 
@@ -130,7 +153,9 @@ const Registation = () => {
               }`}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {Array.isArray(errors.email) ? errors.email[0] : errors.email}
+              </p>
             )}
           </div>
 
@@ -147,7 +172,9 @@ const Registation = () => {
               }`}
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {Array.isArray(errors.password) ? errors.password[0] : errors.password}
+              </p>
             )}
           </div>
 
@@ -165,7 +192,9 @@ const Registation = () => {
             />
             {errors.comfrompassword && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.comfrompassword}
+                {Array.isArray(errors.comfrompassword)
+                  ? errors.comfrompassword[0]
+                  : errors.comfrompassword}
               </p>
             )}
           </div>
@@ -174,13 +203,17 @@ const Registation = () => {
             type="submit"
             className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition"
           >
-            Register
+            {isloading ? "Loading..." : "Register"}
           </button>
         </form>
+
         {serverResponse && (
-            <p className="mt-4 text-center text-green-200 bg-green-800">{serverResponse}</p>
+          <p className={`mt-4 text-center text-green-200 ${serverResponse.type === "success" ? "bg-green-800" : "bg-red-800"} p-2 rounded`}>
+            {serverResponse.message}
+          </p>
         )}
       </div>
+
       {isFromSubmitted && (
         <div className="ml-6 bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
           <h1 className="text-xl font-semibold text-gray-700 mb-3">
