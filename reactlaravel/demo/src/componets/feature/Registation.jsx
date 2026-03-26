@@ -2,9 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 const Registation = () => {
-
-    const [isFromSubmitted,setisFromSubmitted] = useState(false);
+  const [isFromSubmitted, setisFromSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [serverResponse, setserverResponse] = useState("");
+  const [isloading, setisloading] = useState(false);
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -18,11 +19,48 @@ const Registation = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const formsubmit = (e) => {
+  const formsubmit = async (e) => {
     e.preventDefault();
     const isValid = validateFrom();
     if (!isValid) return;
+    setisloading(true);
     setisFromSubmitted(true);
+
+    try {
+      // fetch('https://jsonplaceholder.typicode.com/users',{
+      //     method:'POST',
+      //     headers:{
+      //         "Content-Type":"application/json"
+      //     },
+      //     body: JSON.stringify(formData)
+      // }).then(response => response.json()).then(data=>console.log(data));
+
+      const payload ={
+        fname: formData.fname,
+        email: formData.email,
+        password: formData.password,
+        password_comfirmation: formData.comfrompassword
+      }
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+
+      setserverResponse(data.message );
+      setisloading(false);
+    } catch (error) {
+      console.log("api error", error);
+      setisloading(false);
+    }
   };
 
   const validateFrom = () => {
@@ -139,15 +177,21 @@ const Registation = () => {
             Register
           </button>
         </form>
+        {serverResponse && (
+            <p className="mt-4 text-center text-green-200 bg-green-800">{serverResponse}</p>
+        )}
       </div>
-{isFromSubmitted &&  ( <div className="ml-6 bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-        <h1 className="text-xl font-semibold text-gray-700 mb-3">Form Data</h1>
+      {isFromSubmitted && (
+        <div className="ml-6 bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+          <h1 className="text-xl font-semibold text-gray-700 mb-3">
+            Form Data
+          </h1>
 
-        <h3>Name : {formData.fname}</h3>
-        <h3>Email : {formData.email}</h3>
-        <h3>Password : {formData.password}</h3>
-      </div>)}
-     
+          <h3>Name : {formData.fname}</h3>
+          <h3>Email : {formData.email}</h3>
+          <h3>Password : {formData.password}</h3>
+        </div>
+      )}
     </div>
   );
 };
