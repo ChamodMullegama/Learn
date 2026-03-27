@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const Registation = () => {
@@ -21,6 +21,18 @@ const Registation = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(() => {
+if(!serverResponse.message) return;
+const timer = setTimeout(() => {
+  setserverResponse({
+    type: "",
+    message: "",
+  });
+},3000);
+
+return () => clearTimeout(timer);
+  }, [serverResponse.message]);
 
   const formsubmit = async (e) => {
     e.preventDefault();

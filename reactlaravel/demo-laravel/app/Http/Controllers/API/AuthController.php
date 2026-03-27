@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use PhpParser\Node\Stmt\TryCatch;
 
 class AuthController extends Controller
 {
@@ -39,4 +41,30 @@ class AuthController extends Controller
             ],500);
         }
     }
+
+
+    public function login(Request $request)
+    {
+      $request->validate([
+
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6'
+      ]);
+
+      try {
+       if( Auth::attempt($request->only('email', 'password'))){
+        return response()->json([
+                    'success'=>true,
+                'message'=>'User registered successfully',
+       ] )
+       };
+      } catch (Exception $e) {
+          return response()->json([
+                'success'=>false,
+                'message'=>'Registration failed: '.$e->getMessage(),
+                'error'=>$e->getMessage()
+            ],500);
+      }
+    }
+}
 }
