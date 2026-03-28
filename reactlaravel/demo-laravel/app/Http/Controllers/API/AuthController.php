@@ -55,14 +55,12 @@ public function login(Request $request)
 
             $user = Auth::user();
 
+          $token=  $user->createToken('react-app')->plainTextToken;
+
             return response()->json([
                 'success' => true,
                 'message' => 'Login successful',
-                'data' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                ]
+                'token' => $token
             ], 200);
 
         } else {

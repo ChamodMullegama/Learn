@@ -72,6 +72,8 @@ const Login = () => {
       }
 
       setErrors({});
+
+      localStorage.setItem('token' ,data.token)
       setserverResponse({
         type: "success",
         message: data.message,
