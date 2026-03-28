@@ -12,71 +12,86 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class AuthController extends Controller
 {
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $validatedRequest = $request->validate([
-            'fname'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
+            'fname' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed'
         ]);
 
         try {
 
             $user = User::create([
-                'name'=>$validatedRequest['fname'],
-                'email'=>$validatedRequest['email'],
-                'password'=>Hash::make($validatedRequest['password'])
+                'name' => $validatedRequest['fname'],
+                'email' => $validatedRequest['email'],
+                'password' => Hash::make($validatedRequest['password'])
             ]);
 
             return response()->json([
-                'success'=>true,
-                'message'=>'User registered successfully',
-                'data'=>$user
-            ],201);
-
+                'success' => true,
+                'message' => 'User registered successfully',
+                'data' => $user
+            ], 201);
         } catch (Exception $e) {
             return response()->json([
-                'success'=>false,
-                'message'=>'Registration failed: '.$e->getMessage(),
-                'error'=>$e->getMessage()
-            ],500);
+                'success' => false,
+                'message' => 'Registration failed: ' . $e->getMessage(),
+                'error' => $e->getMessage()
+            ], 500);
         }
     }
 
 
-public function login(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:6'
-    ]);
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
 
-    try {
-        if (Auth::attempt($request->only('email', 'password'))) {
+        try {
+            if (Auth::attempt($request->only('email', 'password'))) {
 
-            $user = Auth::user();
+                $user = Auth::user();
 
-          $token=  $user->createToken('react-app')->plainTextToken;
+                $token =  $user->createToken('react-app')->plainTextToken;
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Login successful',
-                'token' => $token
-            ], 200);
-
-        } else {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Login successful',
+                    'token' => $token
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid email or password'
+                ], 401);
+            }
+        } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid email or password'
-            ], 401);
+                'message' => 'Login failed',
+                'error' => $e->getMessage()
+            ], 500);
         }
+    }
 
-    } catch (\Exception $e) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Login failed',
-            'error' => $e->getMessage()
-        ], 500);
+
+    public function userProfile(Request $request)
+    {
+        try {
+            return response()->json([
+                'success' => true,
+                'message' => 'User Profile Data',
+                'data' => $$request->user()
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Login failed',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 }
-}
-

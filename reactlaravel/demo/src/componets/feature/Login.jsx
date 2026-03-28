@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const Login = () => {
+const Login = ({setPage}) => {
   const [isFromSubmitted, setisFromSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [serverResponse, setserverResponse] = useState({
@@ -79,6 +79,8 @@ const Login = () => {
         message: data.message,
       });
       setisloading(false);
+
+      setPage("dashboard")
 
     } catch (error) {
       console.log("api error", error);
