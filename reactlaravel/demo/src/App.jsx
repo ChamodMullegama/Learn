@@ -1,30 +1,28 @@
-
+import { useState } from "react";
 import Registation from "./componets/feature/Registation";
+import Login from "./componets/feature/Login";
 
 function App() {
-  // const name = "chamod mullegama";
-  // const tp = "0702740542";
 
-  // user = {
-  //   name: "chamod mullegama",
-  //   tp: "0702740542",
-  // };
-
-  // function clickHandler() {
-  //   alert("Button clicked!");
-  // }
+  const [showLogin, setshowLogin] = useState(false);
 
   return (
-    <div className="app">
-      {/* <Header />
-      <UserCard name="chamod mullegama" tp="0702740542" />
-      <UserCard name={name} tp={tp} />
-      <UserCard name={user.name} tp={user.tp} />
-      <Button clickHandler={clickHandler} />
-      <Counter/>
-      <Post/> */}
-      <Registation/>
-      {/* <Uncontroll/> */}
+    <div className="text-center">
+
+      {showLogin ? <Login /> : <Registation />}
+
+      {showLogin ? (
+        <>
+          <p>Do not have an account?</p>
+          <button onClick={() => setshowLogin(false)}>Register</button>
+        </>
+      ) : (
+        <>
+          <p>Already have an account?</p>
+          <button onClick={() => setshowLogin(true)}>Login</button>
+        </>
+      )}
+
     </div>
   );
 }

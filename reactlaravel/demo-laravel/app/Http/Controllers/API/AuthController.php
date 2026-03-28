@@ -43,28 +43,42 @@ class AuthController extends Controller
     }
 
 
-    public function login(Request $request)
-    {
-      $request->validate([
+public function login(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6'
+    ]);
 
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:6'
-      ]);
+    try {
+        if (Auth::attempt($request->only('email', 'password'))) {
 
-      try {
-       if( Auth::attempt($request->only('email', 'password'))){
+            $user = Auth::user();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Login successful',
+                'data' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ]
+            ], 200);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid email or password'
+            ], 401);
+        }
+
+    } catch (\Exception $e) {
         return response()->json([
-                    'success'=>true,
-                'message'=>'User registered successfully',
-       ] )
-       };
-      } catch (Exception $e) {
-          return response()->json([
-                'success'=>false,
-                'message'=>'Registration failed: '.$e->getMessage(),
-                'error'=>$e->getMessage()
-            ],500);
-      }
+            'success' => false,
+            'message' => 'Login failed',
+            'error' => $e->getMessage()
+        ], 500);
     }
 }
 }
+
