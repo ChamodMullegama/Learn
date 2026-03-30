@@ -15,5 +15,11 @@ Route::get('/user', function (Request $request) {
 Route::controller(AuthController::class)->group(function(){
 Route::post('register','register');
 Route::post('login','login');
-Route::get('userProfile','userProfile')->middleware('auth:sanctum');
+
+
+Route::middleware('auth:sanctum')->group(function(){
+Route::get('userProfile','userProfile');
+Route::get('logout','logout');
+});
+
 });
