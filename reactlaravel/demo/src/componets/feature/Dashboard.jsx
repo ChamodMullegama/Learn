@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Dashboard = ({ setPage }) => {
+  const navGate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -56,12 +57,13 @@ const Dashboard = ({ setPage }) => {
 
       // Even if API fails, logout locally
       localStorage.removeItem("token");
-      setPage("login");
+      // setPage("login");
+      navGate('/login');
 
     } catch (error) {
       console.log("Logout error:", error);
       localStorage.removeItem("token");
-      setPage("login");
+    navGate('/login');
     }
   };
 

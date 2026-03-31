@@ -217,6 +217,11 @@ return () => clearTimeout(timer);
           >
             {isloading ? "Loading..." : "Register"}
           </button>
+
+            <>
+              <p>Already have an account?</p>
+              <Link to="/login">Login</Link>
+            </>
         </form>
 
         {serverResponse && (

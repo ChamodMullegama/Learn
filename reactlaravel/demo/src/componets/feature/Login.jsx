@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 
 const Login = ({setPage}) => {
+ const navGate =  useNavigate();
   const [isFromSubmitted, setisFromSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [serverResponse, setserverResponse] = useState({
@@ -80,7 +82,8 @@ const Login = ({setPage}) => {
       });
       setisloading(false);
 
-      setPage("dashboard")
+      // setPage("dashboard")
+      navGate('/dashboard')
 
     } catch (error) {
       console.log("api error", error);
@@ -163,6 +166,11 @@ const Login = ({setPage}) => {
           >
             {isloading ? "Loading..." : "Login"}
           </button>
+
+               <>
+              <p>Do not have an account?</p>
+               <Link to="/register">Register</Link>
+            </>
         </form>
 
         {serverResponse.message && (
