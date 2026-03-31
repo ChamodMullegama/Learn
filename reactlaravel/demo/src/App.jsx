@@ -3,9 +3,10 @@ import PublicRoute from "./routes/PublicRoute";
 import Registation from "./pages/auth/Registation";
 import Login from "./pages/auth/Login";
 import DashboardLayout from "./layout/DashboardLayout";
-import Dashboard from "./componets/feature/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import { useState } from "react";
 import ProtecedRoutes from "./routes/ProtecedRoutes";
+import Profile from "./pages/dashboard/Profile";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route element={<ProtecedRoutes />}>
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/profile/:id" element={<Profile />} />
         </Route>
       </Route>
     </Routes>
