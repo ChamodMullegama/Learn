@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router";
 
 const Registation = () => {
   const [isFromSubmitted, setisFromSubmitted] = useState(false);
@@ -23,15 +24,11 @@ const Registation = () => {
   };
 
   useEffect(() => {
-if(!serverResponse.message) return;
-const timer = setTimeout(() => {
-  setserverResponse({
-    type: "",
-    message: "",
-  });
-},3000);
-
-return () => clearTimeout(timer);
+    if (!serverResponse.message) return;
+    const timer = setTimeout(() => {
+      setserverResponse({ type: "", message: "" });
+    }, 3000);
+    return () => clearTimeout(timer);
   }, [serverResponse.message]);
 
   const formsubmit = async (e) => {
@@ -50,44 +47,28 @@ return () => clearTimeout(timer);
         password_confirmation: formData.comfrompassword
       };
 
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "accept": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch("http://127.0.0.1:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "accept": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
       const data = await response.json();
-      console.log(data);
 
       if (!response.ok) {
         if (response.status === 422 && data.errors) {
-          setErrors((prev) => ({
-            ...prev,
-            ...data.errors
-          }));
-
-          setserverResponse({
-            type: "error",
-            message: data.message
-          });
+          setErrors((prev) => ({ ...prev, ...data.errors }));
         }
-
-        setserverResponse({
-          type:"success",
-         message: data.message
-        });
+        setserverResponse({ type: "error", message: data.message });
         setisloading(false);
         return;
       }
 
       setErrors({});
-      setserverResponse(data.message);
+      setserverResponse({ type: "success", message: data.message });
       setisloading(false);
 
     } catch (error) {
@@ -99,9 +80,7 @@ return () => clearTimeout(timer);
   const validateFrom = () => {
     let neweerrors = {};
 
-    if (!formData.fname.trim()) {
-      neweerrors.fname = "Name is required";
-    }
+    if (!formData.fname.trim()) neweerrors.fname = "Name is required";
 
     if (!formData.email.trim()) {
       neweerrors.email = "Email is required";
@@ -133,7 +112,6 @@ return () => clearTimeout(timer);
             Registration Form
           </h1>
 
-          {/* Name */}
           <div>
             <input
               type="text"
@@ -141,9 +119,7 @@ return () => clearTimeout(timer);
               placeholder="Enter Name"
               onChange={handelChange}
               value={formData.fname}
-              className={`w-full p-3 border rounded-lg ${
-                errors.fname ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full p-3 border rounded-lg ${errors.fname ? "border-red-500" : "border-gray-300"}`}
             />
             {errors.fname && (
               <p className="text-red-500 text-sm mt-1">
@@ -152,7 +128,6 @@ return () => clearTimeout(timer);
             )}
           </div>
 
-          {/* Email */}
           <div>
             <input
               type="text"
@@ -160,9 +135,7 @@ return () => clearTimeout(timer);
               placeholder="Enter Email"
               onChange={handelChange}
               value={formData.email}
-              className={`w-full p-3 border rounded-lg ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full p-3 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-300"}`}
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">
@@ -171,7 +144,6 @@ return () => clearTimeout(timer);
             )}
           </div>
 
-          {/* Password */}
           <div>
             <input
               type="password"
@@ -179,9 +151,7 @@ return () => clearTimeout(timer);
               placeholder="Enter Password"
               onChange={handelChange}
               value={formData.password}
-              className={`w-full p-3 border rounded-lg ${
-                errors.password ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full p-3 border rounded-lg ${errors.password ? "border-red-500" : "border-gray-300"}`}
             />
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">
@@ -190,7 +160,6 @@ return () => clearTimeout(timer);
             )}
           </div>
 
-          {/* Confirm Password */}
           <div>
             <input
               type="password"
@@ -198,15 +167,11 @@ return () => clearTimeout(timer);
               placeholder="Confirm Password"
               onChange={handelChange}
               value={formData.comfrompassword}
-              className={`w-full p-3 border rounded-lg ${
-                errors.comfrompassword ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full p-3 border rounded-lg ${errors.comfrompassword ? "border-red-500" : "border-gray-300"}`}
             />
             {errors.comfrompassword && (
               <p className="text-red-500 text-sm mt-1">
-                {Array.isArray(errors.comfrompassword)
-                  ? errors.comfrompassword[0]
-                  : errors.comfrompassword}
+                {Array.isArray(errors.comfrompassword) ? errors.comfrompassword[0] : errors.comfrompassword}
               </p>
             )}
           </div>
@@ -218,14 +183,14 @@ return () => clearTimeout(timer);
             {isloading ? "Loading..." : "Register"}
           </button>
 
-            <>
-              <p>Already have an account?</p>
-              <Link to="/login">Login</Link>
-            </>
+          <div>
+            <p>Already have an account?</p>
+            <Link to="/login">Login</Link>
+          </div>
         </form>
 
-        {serverResponse && (
-          <p className={`mt-4 text-center text-green-200 ${serverResponse.type === "success" ? "bg-green-800" : "bg-red-800"} p-2 rounded`}>
+        {serverResponse.message && (
+          <p className={`mt-4 text-center text-white ${serverResponse.type === "success" ? "bg-green-800" : "bg-red-800"} p-2 rounded`}>
             {serverResponse.message}
           </p>
         )}
@@ -233,10 +198,7 @@ return () => clearTimeout(timer);
 
       {isFromSubmitted && (
         <div className="ml-6 bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-          <h1 className="text-xl font-semibold text-gray-700 mb-3">
-            Form Data
-          </h1>
-
+          <h1 className="text-xl font-semibold text-gray-700 mb-3">Form Data</h1>
           <h3>Name : {formData.fname}</h3>
           <h3>Email : {formData.email}</h3>
           <h3>Password : {formData.password}</h3>

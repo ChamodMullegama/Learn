@@ -1,10 +1,12 @@
-import { useState } from "react";
-import Registation from "./componets/feature/Registation";
-import Login from "./componets/feature/Login";
-import Dashboard from "./componets/feature/Dashboard";
-import { Route } from "react-router";
-import ProtecedRoutes from "./routes/ProtecedRoutes";
+import { Route, Routes } from "react-router";
 import PublicRoute from "./routes/PublicRoute";
+import Registation from "./pages/auth/Registation";
+import Login from "./pages/auth/Login";
+import DashboardLayout from "./layout/DashboardLayout";
+import Dashboard from "./componets/feature/Dashboard";
+import { useState } from "react";
+import ProtecedRoutes from "./routes/ProtecedRoutes";
+
 
 function App() {
   const [showLogin, setshowLogin] = useState(false);
@@ -20,7 +22,9 @@ function App() {
       </Route>
 
       <Route element={<ProtecedRoutes />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<DashboardLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Route>
     </Routes>
 
