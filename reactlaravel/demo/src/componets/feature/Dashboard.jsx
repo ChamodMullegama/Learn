@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Dashboard = ({ setPage }) => {
+const Dashboard = () => {
   const navGate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,12 +26,6 @@ const Dashboard = ({ setPage }) => {
           "Authorization": `Bearer ${token}`
         }
       });
-
-      if (apiresponse.status === 401) {
-        localStorage.removeItem("token");
-        setPage("login");
-        return;
-      }
 
       const response = await apiresponse.json();
 

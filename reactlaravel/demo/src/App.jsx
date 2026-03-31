@@ -2,6 +2,8 @@ import { useState } from "react";
 import Registation from "./componets/feature/Registation";
 import Login from "./componets/feature/Login";
 import Dashboard from "./componets/feature/Dashboard";
+import { Route } from "react-router";
+import ProtecedRoutes from "./routes/ProtecedRoutes";
 
 function App() {
 
@@ -13,7 +15,10 @@ function App() {
     <Routes>
       <Route path="/register" element={<Registation/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route element={<ProtecedRoutes/>}>
+             <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
+    
     </Routes>
 
     // <div className="text-center">
