@@ -4,21 +4,24 @@ import Login from "./componets/feature/Login";
 import Dashboard from "./componets/feature/Dashboard";
 import { Route } from "react-router";
 import ProtecedRoutes from "./routes/ProtecedRoutes";
+import PublicRoute from "./routes/PublicRoute";
 
 function App() {
-
   const [showLogin, setshowLogin] = useState(false);
-  const [page, setPage] = useState(localStorage.getItem('token') ? "dashboard" : "login");
+  const [page, setPage] = useState(
+    localStorage.getItem("token") ? "dashboard" : "login"
+  );
 
   return (
-
     <Routes>
-      <Route path="/register" element={<Registation/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route element={<ProtecedRoutes/>}>
-             <Route path="/dashboard" element={<Dashboard />} />
+      <Route element={<PublicRoute />}>
+        <Route path="/register" element={<Registation />} />
+        <Route path="/login" element={<Login />} />
       </Route>
-    
+
+      <Route element={<ProtecedRoutes />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
     </Routes>
 
     // <div className="text-center">
