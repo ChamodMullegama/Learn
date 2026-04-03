@@ -84,7 +84,7 @@ class AuthController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'User Profile Data',
-                'data' => $$request->user()
+                'data' => $request->user()
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
