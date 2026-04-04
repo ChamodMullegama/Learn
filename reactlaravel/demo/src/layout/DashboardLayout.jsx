@@ -78,7 +78,7 @@ const DashboardLayout = () => {
       <div className="flex-1 flex flex-col overflow-auto">
         <Header user={user} logout={logout} loading={loading} error={error} />
         <main className="p-6 flex-1">
-          <Outlet />
+          <Outlet context={{ user, loading, error }} />
         </main>
       </div>
     </div>

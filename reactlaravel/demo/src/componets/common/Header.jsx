@@ -21,12 +21,12 @@ const Header = ({ user, logout, loading, error }) => {
           </div>
         ) : null}
 
-        <button
+        {/* <button
           className="bg-red-500 text-white px-4 py-2 rounded-2xl hover:bg-red-800 transition"
           onClick={logout}
         >
           Logout
-        </button>
+        </button> */}
 
         <div className="relative">
           <button
@@ -43,6 +43,8 @@ const Header = ({ user, logout, loading, error }) => {
             >
               Profile
             </Link>
+
+            <button onClick={logout} className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 cursor-pointer">Logout</button>
           </div>
         </div>
       </div>
